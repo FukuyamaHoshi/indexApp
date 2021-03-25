@@ -15,8 +15,23 @@ class PontController < ApplicationController
     def delete
         if request.post? then
             user = User.find_by(uuid: params['uuid'])
-            puts user
             user.destroy
+        end
+    end
+
+    def edit
+        if request.post? then
+            user = User.find_by(uuid: params['uuid'])
+            
+            if params['name'] != nil then
+                user.name = params['name']
+            elsif params['age'] != nil then
+                user.age = params['age']
+            elsif params['sex'] != nil then
+                user.sex = params['sex']
+            end
+
+            user.save
         end
     end
 end

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'pont/post'
   post 'pont/create'
   post 'pont/delete'
+  post 'pont/edit'
 end
